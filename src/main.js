@@ -1,18 +1,15 @@
 import Vue from 'vue'
 import App from './App.vue'
 import router from '@/router'
-import VueSocketIO from 'vue-socket.io';
+import VueSocketIO from 'vue-socket.io'
 import SocketIO from 'socket.io-client'
 
-const socket = SocketIO('http://localhost:8081', {})
+const url = `${window.location.protocol}//${window.location.hostname}:8081`
+const io = SocketIO(url, {})
 
 const vueSocket = new VueSocketIO({
   debug: false,
-  connection: socket
-  // vuex: {
-  //   store,
-  //   actionPrefix: "socket_"
-  // }  
+  connection: io
 })
 
 Vue.use(vueSocket)
