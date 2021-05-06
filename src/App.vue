@@ -1,13 +1,26 @@
 <template>
   <div id="app">
     <router-view/>
+    <div>
+        {{this.message}}
+    </div>
   </div>
 </template>
 
 <script>
 export default {
   name: 'App',
+  data () {
+      return {
+          message: '----'
+      }
+  },
   components: {
+  },
+  sockets: {
+      serverMessage (arg) {
+          this.message = arg
+      }
   }
 }
 </script>
