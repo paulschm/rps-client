@@ -19,7 +19,6 @@ export default {
   name: 'App',
   data () {
       return {
-          messages: [],
           socketId: ''
       }
   },
@@ -28,13 +27,12 @@ export default {
   sockets: {
       connect() {
         this.socketId = this.$socket.id
-      },
-      serverMessage (arg) {
-          this.messages.push(arg)
-      },
-      serverMessages (arg) {
-        this.messages = arg
       }
+  },
+  computed: {
+    messages() {
+      return this.$store.state.messages
+    }
   }
 }
 </script>
