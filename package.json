@@ -8,6 +8,8 @@
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
+    "@teachablemachine/image": "^0.8.4",
+    "@tensorflow/tfjs": "^1.7.4",
     "core-js": "^3.6.5",
     "socket.io-client": "^4.0.1",
     "vue": "^2.6.11",

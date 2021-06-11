@@ -3,9 +3,12 @@
     <h1>Match</h1>
     <h2 v-if="counter != 0">{{ counter }}</h2>
     <div v-if="counter == 0 && !turn">
-        <button @click="makeTurn('rock')">Rock</button>
-        <button @click="makeTurn('paper')">Paper</button>
-        <button @click="makeTurn('scissors')">Scissors</button>
+        <div v-if="mode == 'buttons'">
+          <button @click="makeTurn('rock')">Rock</button>
+          <button @click="makeTurn('paper')">Paper</button>
+          <button @click="makeTurn('scissors')">Scissors</button>
+        </div>
+        <gesture v-if="mode == 'gesture'" @gesture="makeTurn"/>
     </div>
     <div v-if="turn">
       <div>Your choice: {{ turn }}</div>
@@ -15,8 +18,11 @@
 </template>
 
 <script>
+import Gesture from './Gesture'
+
 export default {
   components: {
+    Gesture
   },
   data () {
     return {
