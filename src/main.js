@@ -12,12 +12,11 @@ if (process.env.VUE_APP_API_URL) {
 }
 
 const io = SocketIO(url, {})
-store.$socket = io
+store.socket = io
 
-// const vueSocket = new VueSocketIO({
-//   debug: false,
-//   connection: io
-// })
+if (store.state.user != null) {
+  store.dispatch('login', store.state.user.username)
+}
 
 const vueSocket = new VueSocketIO({
   debug: false,
