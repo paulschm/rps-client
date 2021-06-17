@@ -9,6 +9,7 @@
           <button @click="makeTurn('scissors')">Scissors</button>
         </div>
         <gesture v-if="mode == 'gesture'" @gesture="makeTurn"/>
+        <speech v-if="mode == 'speech'" @word="makeTurn"/>
     </div>
     <div v-if="turn">
       <div>Your choice: {{ turn }}</div>
@@ -19,10 +20,12 @@
 
 <script>
 import Gesture from './Gesture'
+import Speech from './Speech'
 
 export default {
   components: {
-    Gesture
+    Gesture,
+    Speech
   },
   data () {
     return {

@@ -7,6 +7,9 @@
         <br />
         <input type="radio" id="gesture" value="gesture" v-model="mode" />
         <label for="gesture">Gesture</label>
+        <br/>
+        <input type="radio" id="speech" value="speech" v-model="mode" />
+        <label for="speech">Speech</label>
       </div>
       <div class="input">
         Enter a username: <input
