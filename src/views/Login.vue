@@ -40,7 +40,9 @@ export default {
   },
   methods: {
     enterGame () {
-      this.$store.dispatch('login', this.username)
+      if (this.username != '') {
+        this.$store.dispatch('login', this.username)
+      }
     }
   },
   computed: {
