@@ -4,7 +4,7 @@
     <div v-if="winner">{{winner.username}} wins!</div>
     <div v-if="winner == null">Draw!</div>
     <table>
-      <tr v-for="(user, id) in users" :key="id">
+      <tr v-for="(user, id) in result" :key="id">
         <td>{{user.username}}</td><td>{{user.turn}}</td>
       </tr>
     </table>
@@ -23,8 +23,8 @@ export default {
     winner() {
       return this.$store.state.winner
     },
-    users() {
-      return this.$store.state.users
+    result () {
+      return this.$store.state.result.users
     }
   }
 }

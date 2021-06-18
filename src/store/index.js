@@ -29,7 +29,8 @@ const store = new Vuex.Store({
         winner: null,
         matchRequest: null,
         turn: null,
-        mode: 'buttons'
+        mode: 'buttons',
+        result: null
     },
     mutations: {
         [LOGIN_PLAYER](state, payload) {
@@ -59,11 +60,24 @@ const store = new Vuex.Store({
         },
         [END_MATCH](state, payload) {
             state.winner = payload.winner
+            state.result = {
+                users: [
+                    {
+                        username: state.winner.username,
+                        turn: state.winner.turn
+                    },
+                    {
+                        username: state.user.username,
+                        turn: state.turn
+                    }
+                ]
+            }
             state.screen = 'result'
         },
         [NEW_MATCH](state) {
             state.winner = null
             state.turn = null
+            state.result = null
             state.screen = 'idle'
         },
         [MATCH_REQUESTED](state, payload) {
