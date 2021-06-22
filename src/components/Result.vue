@@ -1,8 +1,8 @@
 <template>
   <div class="about">
     <h1>Result</h1>
-    <div v-if="winner">{{winner.username}} wins!</div>
-    <div v-if="winner == null">Draw!</div>
+    <div v-if="result.winner">{{result.winner.username}} wins!</div>
+    <div v-if="result.winner == null">Draw!</div>
     <table>
       <tr v-for="(user, id) in result" :key="id">
         <td>{{user.username}}</td><td>{{user.turn}}</td>
