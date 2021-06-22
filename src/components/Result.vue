@@ -4,7 +4,7 @@
     <div v-if="result.winner">{{result.winner.username}} wins!</div>
     <div v-if="result.winner == null">Draw!</div>
     <table>
-      <tr v-for="(user, id) in result" :key="id">
+      <tr v-for="(user, id) in result.players" :key="id">
         <td>{{user.username}}</td><td>{{user.turn}}</td>
       </tr>
     </table>
