@@ -13,21 +13,6 @@
 </template>
 
 <script>
-// export default {
-//   methods: {
-//     newMatch() {
-//       this.$store.dispatch('newMatch')
-//     }
-//   },
-//   computed: {
-//     winner() {
-//       return this.$store.state.winner
-//     },
-//     result () {
-//       return this.$store.state.result.users
-//     }
-//   }
-// }
 export default {
   methods: {
     newMatch() {

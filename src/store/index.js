@@ -59,19 +59,7 @@ const store = new Vuex.Store({
             state.turn = payload.turn
         },
         [END_MATCH](state, payload) {
-            state.winner = payload.winner
-            state.result = {
-                users: [
-                    {
-                        username: state.winner.username,
-                        turn: state.winner.turn
-                    },
-                    {
-                        username: state.user.username,
-                        turn: state.turn
-                    }
-                ]
-            }
+            state.result = payload
             state.screen = 'result'
         },
         [NEW_MATCH](state) {
@@ -141,6 +129,9 @@ const store = new Vuex.Store({
     getters: {
         loggedIn: state => {
             return state.user !== null
+        },
+        username: state => {
+            return state.user.username
         }
     }
 })
